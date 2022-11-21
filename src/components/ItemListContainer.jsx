@@ -18,15 +18,15 @@ export default function ItemListContainer() {
                 collection(db, "products"), 
                 where("idCategory", "==", idCategory)
             );
-        }
+        };
 
         getDocs(miCollection).then((data) => {
 
             const auxProducts = data.docs.map((product) => ({
-            ...product.data(),
-            id: product.id,
+                ...product.data(),
+                id: product.id,
             }));
-
+            
             setProducts(auxProducts);
         });
 
